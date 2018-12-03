@@ -4,4 +4,5 @@
 <h2>Lectures</h2>
 <h3>1. Introduction and Optimization Problems</h3>
 Brief introduction to the various computational models.
-<ol>Optimization Models</ol><ol>Statistical Models</ol><ol>Simulation Models</ol>
+<ul style="list-style-type:circle"><li>Optimization Models</li><li>Statistical Models</li><li>Simulation Models</li></ul>
+More into optimization problems and analysis of the <a href="https://en.wikipedia.org/wiki/Knapsack_problem">Knapsack Problem</a>.
