@@ -10,4 +10,4 @@ Brief introduction to the various computational models.
 <ul style="list-style-type:circle"><li>Pros and Cons of Greedy</li><li>More on the Brute Force Algorithm</li><li>Little introduction and history of Dynamic Programming</li><li>Optimizing algorithms using Dynamic Programming</li></ul>
 
 <h3>3. Graph-theoretic Models</h3>
-<ul style="list-style-type:circle"><li>What's a Graph?</li><li>Why graphs are so useful?</li><li>Trees - A special case</li><li>Implementing and using Graphs</li><li>Optimization problems in graph</li></ul>
+<ul style="list-style-type:circle"><li>What's a Graph?</li><ul><li>Set of Nodes</li><li>Set of Edges</li></ul><li>Why graphs are so useful?</li><li>Trees - A special case</li><li>Implementing and using Graphs</li><li>Optimization problems in graph</li></ul>
