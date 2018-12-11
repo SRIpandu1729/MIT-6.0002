@@ -28,8 +28,11 @@ def load_cows(filename):
     # TODO: Your code here
     cows_file = open(filename, 'r')
     cows_data = cows_file.read()
-    cows_data = cows_data.split()
-    return cows_data
+    cows_data = cows_data.split('\n')
+    cows_dict = {}
+    for cow in cows_data:
+        cows_dict[cow.split(',')[0]] = int(cow.split(',')[1])
+    return cows_dict
     pass
 
 
