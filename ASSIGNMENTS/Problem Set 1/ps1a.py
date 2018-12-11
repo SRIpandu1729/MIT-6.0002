@@ -36,6 +36,29 @@ def load_cows(filename):
     pass
 
 
+def get_next_possible_trip(cows, limit):
+    trip = []
+    available_weight = limit
+    for cow in cows:
+        if cow[1] <= available_weight:
+            trip.append(cow[0])
+            available_weight -= cow[1]
+            if available_weight == 0:
+                return trip
+    return trip
+
+
+def remove_tripped_cows(cows_iter, trip):
+    cows_iter_copy = cows_iter
+    while len(trip) != 0:
+        for i in range(len(cows_iter_copy)):
+            if cows_iter_copy[i][0] == trip[0]:
+                trip = trip[1:]
+                cows_iter_copy.pop(i)
+                break
+    return cows_iter_copy
+
+
 # Problem 2
 def greedy_cow_transport(cows, limit=10):
     """
@@ -60,6 +83,17 @@ def greedy_cow_transport(cows, limit=10):
     trips
     """
     # TODO: Your code here
+    cows_iter = sorted(cows.iteritems(), key=lambda x: -x[1])
+    print cows_iter
+    trips = []
+    while len(cows_iter) != 0:
+        # get the next possible trip
+        trip = get_next_possible_trip(cows_iter, limit)
+        # append the trip to trips
+        trips.append(trip)
+        # remove already added cows
+        cows_iter = remove_tripped_cows(cows_iter, trip)
+    return trips
     pass
 
 
