@@ -49,14 +49,13 @@ def get_next_possible_trip(cows, limit):
 
 
 def remove_tripped_cows(cows_iter, trip):
-    cows_iter_copy = cows_iter
     while len(trip) != 0:
-        for i in range(len(cows_iter_copy)):
-            if cows_iter_copy[i][0] == trip[0]:
+        for i in range(len(cows_iter)):
+            if cows_iter[i][0] == trip[0]:
                 trip = trip[1:]
-                cows_iter_copy.pop(i)
+                cows_iter.pop(i)
                 break
-    return cows_iter_copy
+    return cows_iter
 
 
 # Problem 2
