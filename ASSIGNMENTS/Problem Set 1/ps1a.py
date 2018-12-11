@@ -26,8 +26,10 @@ def load_cows(filename):
     a dictionary of cow name (string), weight (int) pairs
     """
     # TODO: Your code here
-    open(filename)
-
+    cows_file = open(filename, 'r')
+    cows_data = cows_file.read()
+    cows_data = cows_data.split()
+    return cows_data
     pass
 
 
