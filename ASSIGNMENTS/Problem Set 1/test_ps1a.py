@@ -21,3 +21,19 @@ def test_ps1a_greedy_cow_transport():
     cows = greedy_cow_transport(load_cows('ps1_cow_data.txt'))
     print cows
     pass
+
+
+def test_get_partitions():
+    # for partition in get_partitions(load_cows('ps1_cow_data.txt')):
+    #     print partition
+    pass
+
+
+def test_brute_force_cow_transport():
+    print(brute_force_cow_transport(load_cows('ps1_cow_data.txt'), 10))
+    pass
+
+
+def test_compare_cow_transport_algorithms():
+    compare_cow_transport_algorithms()
+    pass
