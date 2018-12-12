@@ -96,6 +96,16 @@ def greedy_cow_transport(cows, limit=10):
     pass
 
 
+def is_valid_partition(cows, partition, limit):
+    for trip in partition:
+        remaining_weight = limit
+        for cow in trip:
+            remaining_weight -= cows[cow]
+            if remaining_weight < 0:
+                return False
+    return True
+
+
 # Problem 3
 def brute_force_cow_transport(cows, limit=10):
     """
@@ -119,6 +129,18 @@ def brute_force_cow_transport(cows, limit=10):
     trips
     """
     # TODO: Your code here
+    is_first_valid_partition = True
+    cow_partitions = get_partitions(cows)
+    for partition in cow_partitions:
+        if is_valid_partition(cows, partition, limit):
+            if is_first_valid_partition:
+                is_first_valid_partition = False
+                number_of_trips = len(partition)
+                current_best_partition = partition
+            elif len(partition) < number_of_trips:
+                number_of_trips = len(partition)
+                current_best_partition = partition
+    return current_best_partition
     pass
 
 
@@ -137,4 +159,14 @@ def compare_cow_transport_algorithms():
     Does not return anything.
     """
     # TODO: Your code here
+    greedy_start_time = time.time()
+    solution_using_greedy = greedy_cow_transport(load_cows('ps1_cow_data.txt'))
+    greedy_end_time = time.time()
+    brute_start_time = time.time()
+    solution_using_brute = brute_force_cow_transport(load_cows('ps1_cow_data.txt'))
+    brute_end_time = time.time()
+    print "Time taken by greedy : " + str(greedy_end_time - greedy_start_time)
+    print "Number of trips using greedy : " + str(len(solution_using_greedy))
+    print "Time taken by brute : " + str(brute_end_time - brute_start_time)
+    print "Number of trips using brute : " + str(len(solution_using_brute))
     pass
